@@ -3,7 +3,7 @@
  * Plugin Name: ACF Icons Shortcode
  * Plugin URI: https://github.com/dmitryturin-art/acf-icons-shortcode
  * Description: Шорткод для вывода иконок комплектации из полей ACF с поддержкой размера и ориентации
- * Version: 1.5.0
+ * Version: 1.6.0
  * Author: Дмитрий Тюрин
  * Author URI: https://studio-spline.ru
  * License: GPL-2.0+
@@ -17,6 +17,11 @@
 if (!defined('ABSPATH')) {
     exit; // Выход, если доступ напрямую
 }
+
+// Определяем константы плагина
+define('ACF_ICONS_SHORTCODE_VERSION', '1.6.0');
+define('ACF_ICONS_SHORTCODE_URL', plugin_dir_url(__FILE__));
+define('ACF_ICONS_SHORTCODE_PATH', plugin_dir_path(__FILE__));
 
 /**
  * Шорткод для вывода иконок комплектации из ACF
@@ -78,84 +83,20 @@ function acf_icons_shortcode($atts) {
 add_shortcode('acf_icons', 'acf_icons_shortcode');
 
 /**
- * Добавляем стили для шорткода
+ * Подключение стилей плагина
  */
-function acf_icons_shortcode_styles() {
-    ?>
-    <style>
-        .acf-icons-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .acf-icons-wrapper.layout-vertical {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        
-        .acf-icons-wrapper.layout-horizontal {
-            flex-direction: row;
-        }
-        
-        .acf-icons-wrapper .acf-icon-item {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            cursor: help;
-            position: relative;
-            flex-shrink: 0;
-        }
-        
-        .acf-icons-wrapper .acf-icon {
-            width: var(--icon-size, 28px);
-            height: var(--icon-size, 28px);
-            object-fit: contain;
-            transition: transform 0.3s;
-            display: block;
-        }
-        
-        .acf-icons-wrapper .acf-icon-item:hover .acf-icon {
-            transform: scale(1.1);
-        }
-        
-        /* Всплывающая подсказка */
-        .acf-icons-wrapper .acf-icon-item::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: #fff;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 13px;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-            z-index: 100;
-        }
-        
-        .acf-icons-wrapper.layout-vertical .acf-icon-item::after {
-            bottom: 0;
-            left: 100%;
-            transform: translateY(-50%);
-            margin-left: 8px;
-        }
-        
-        .acf-icons-wrapper .acf-icon-item:hover::after {
-            opacity: 1;
-        }
-    </style>
-    <?php
+/**
+ * Подключение стилей плагина
+ */
+function acf_icons_shortcode_enqueue_styles() {
+    wp_enqueue_style(
+        'acf-icons-shortcode',
+        ACF_ICONS_SHORTCODE_URL . 'css/acf-icons-shortcode.css',
+        array(),
+        ACF_ICONS_SHORTCODE_VERSION
+    );
 }
-add_action('wp_head', 'acf_icons_shortcode_styles');
+add_action('wp_enqueue_scripts', 'acf_icons_shortcode_enqueue_styles');
 
 /**
  * Интеграция с WPBakery (Visual Composer)
