@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: ACF Icons Shortcode
- * Plugin URI: https://github.com/yourusername/acf-icons-shortcode
+ * Plugin URI: https://github.com/dmitryturin-art/acf-icons-shortcode
  * Description: Шорткод для вывода иконок комплектации из полей ACF с поддержкой размера и ориентации
  * Version: 1.5.0
- * Author: Your Name
- * Author URI: https://yourwebsite.com
+ * Author: Дмитрий Тюрин
+ * Author URI: https://studio-spline.ru
  * License: GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: acf-icons-shortcode
