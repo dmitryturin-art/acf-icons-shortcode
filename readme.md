@@ -296,9 +296,7 @@ GNU General Public License for more details.
 
 Если у вас возникли вопросы или проблемы:
 
-- 📧 Напишите на почту: your.email@example.com
 - 💬 Создайте issue на GitHub: [GitHub Issues](https://github.com/yourusername/acf-icons-shortcode/issues)
-- 🌐 Посетите сайт: [yourwebsite.com](https://yourwebsite.com)
 
 ## 🙏 Благодарности
 
