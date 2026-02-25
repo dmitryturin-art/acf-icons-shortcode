@@ -100,9 +100,6 @@ add_shortcode('acf_icons', 'acf_icons_shortcode');
 /**
  * Подключение стилей плагина
  */
-/**
- * Подключение стилей плагина
- */
 function acf_icons_shortcode_enqueue_styles() {
     wp_enqueue_style(
         'acf-icons-shortcode',
