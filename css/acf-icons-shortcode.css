@@ -67,3 +67,41 @@
 .acf-icons-wrapper .acf-icon-item:hover::after {
     opacity: 1;
 }
+
+/* Режим с подписью */
+.acf-icons-wrapper.display-label .acf-icon-item.with-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.acf-icons-wrapper.display-label .acf-icon-label {
+    font-size: 13px;
+    color: #333;
+    text-align: center;
+    line-height: 1.4;
+    max-width: 120px;
+}
+
+/* Позиция подписи сверху */
+.acf-icons-wrapper.display-label .acf-icon-item.with-label.label-top {
+    flex-direction: column;
+}
+
+/* Позиция подписи снизу */
+.acf-icons-wrapper.display-label .acf-icon-item.with-label.label-bottom {
+    flex-direction: column;
+}
+
+/* Вертикальный режим с подписями */
+.acf-icons-wrapper.display-label.layout-vertical .acf-icon-item.with-label {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Горизонтальный режим с подписями */
+.acf-icons-wrapper.display-label.layout-horizontal .acf-icon-item.with-label {
+    flex-direction: column;
+    align-items: center;
+}
